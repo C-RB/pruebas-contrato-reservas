@@ -91,3 +91,5 @@ También hubo que coordinar bien qué servicio consumía a cuál, ya que el enun
 Camilo Rojas se encargó del diseño general de la arquitectura, la implementación del Servicio de Reservas (proveedor), la definición de los estados de prueba y de la verificación con Pact, además de la gestión del repositorio y los commits.
 
 Nicolas Llancaqueo se encargó de la implementación del Portal de Usuario y del Servicio de Administración (consumidores), la definición y escritura de los contratos Pact, y la redacción de la documentación de uso en este README.
+
+Armin: Se encargó de la contenedorización de los microservicios, la configuración de Docker y docker-compose.yml para la orquestación del sistema, y la creación de los scripts automatizados de npm (test:consumers, test:provider) para estandarizar la ejecución de pruebas en los distintos entornos.
