@@ -1,0 +1,17 @@
+{
+  "name": "reservas-service",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "verify": "node test/verify.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@pact-foundation/pact": "^12.5.0",
+    "axios": "^1.7.2"
+  }
+}

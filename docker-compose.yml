@@ -1,0 +1,27 @@
+services:
+  reservas-service:
+    build: ./services/reservas-service
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+
+  portal-usuario:
+    build: ./services/portal-usuario
+    ports:
+      - "4001:4001"
+    environment:
+      - PORT=4001
+      - RESERVAS_URL=http://reservas-service:4000
+    depends_on:
+      - reservas-service
+
+  admin-service:
+    build: ./services/admin-service
+    ports:
+      - "4002:4002"
+    environment:
+      - PORT=4002
+      - RESERVAS_URL=http://reservas-service:4000
+    depends_on:
+      - reservas-service

@@ -1,0 +1,16 @@
+{
+  "name": "pruebas-contrato-reservas",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "services/reservas-service",
+    "services/portal-usuario",
+    "services/admin-service"
+  ],
+  "scripts": {
+    "test:consumers": "npm test --workspace=services/portal-usuario && npm test --workspace=services/admin-service",
+    "test:provider": "npm run verify --workspace=services/reservas-service",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down"
+  }
+}

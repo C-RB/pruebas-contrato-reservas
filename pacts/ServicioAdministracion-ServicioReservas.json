@@ -1,0 +1,80 @@
+{
+  "consumer": {
+    "name": "ServicioAdministracion"
+  },
+  "interactions": [
+    {
+      "description": "una solicitud para validar la reserva R-1001",
+      "providerStates": [
+        {
+          "name": "la reserva R-1001 existe y esta activa"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/reservas/R-1001/validar"
+      },
+      "response": {
+        "body": {
+          "id": "R-1001",
+          "valida": true
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "una solicitud para validar una reserva inexistente",
+      "providerStates": [
+        {
+          "name": "la reserva no existe"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/reservas/R-9999/validar"
+      },
+      "response": {
+        "body": {
+          "id": "R-9999",
+          "valida": false
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.valida": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.5.2"
+    },
+    "pactRust": {
+      "ffi": "0.4.20",
+      "models": "1.2.0"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "ServicioReservas"
+  }
+}
